@@ -591,18 +591,27 @@ void GLSoccerView::drawPoints()
   // printf("points: %d\n", points.size());
   vector2d v1;
   vector2d v2;
+  vector2d v_theta;
+
   if (target_points.size() > 0)
   {
     v1.x = target_points[0].x;
     v1.y = target_points[0].y;
+    v_theta.x = 100.0 * sin(target_points[0].z) + v1.x;
+    v_theta.y = 100.0 * cos(target_points[0].z) + v1.y;
+    // cout << "v_t: (" << v_theta.x << ", " << v_theta.y << ")" << endl;
     drawPoint(v1, .08, 0.8, 0.89, 32, 4);
+    drawVector(v1, v_theta, 0.8, 0.08, 0.89);
   }
   for (int i = 1; i < target_points.size(); ++i)
   { 
     v2.x = target_points[i].x;
     v2.y = target_points[i].y;
-    drawVector(v1, v2, 0.08, 0.8, 0.89);
+    v_theta.x = 100.0 * sin(target_points[i].z) + v2.x;
+    v_theta.y = 100.0 * cos(target_points[i].z) + v2.y;
     drawPoint(v2, .08, 0.8, 0.89, 32,4);
+    drawVector(v1, v2, 0.08, 0.8, 0.89);
+    drawVector(v2, v_theta, 0.8, 0.08, 0.89);
 
     v1.x = v2.x;
     v1.y = v2.y;
