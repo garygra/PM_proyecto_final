@@ -49,12 +49,12 @@ Como ejemplo, se va a ejecutar el cliente gráfica, puntos de una trajectoria ar
 
 Terminal 1:
 ```
-roslaunch graphical_client graphical_client_node
+roslaunch graphical_client graphical_client.launch
 ```
 
 Terminal 2:
 ```
-rosrun pub_example publisher
+rosrun pub_example publisher.py
 ```
 
 Terminal 3:
